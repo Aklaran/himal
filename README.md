@@ -1,36 +1,30 @@
-# 🏔️ Himal
+# Himal
 
-**The mountain beneath the peaks.**
+Skills and extensions for [Pi](https://github.com/badlogic/pi-mono) agents. One install script sets up multi-agent orchestration, diff review, semantic memory, vim editing, and more.
 
-Himal (हिमाल, Nepali for "mountain") is a collection of skills and extensions for [Pi](https://github.com/badlogic/pi-mono) that turn a base AI agent into one that can orchestrate subagents, review diffs, search semantic memory, take screenshots, and more.
+## Skills
 
-Named peaks — like [Annapurna](https://github.com/annapurna-himal) — are specific agent identities built on Himal's foundation.
-
-## What's Inside
-
-### Skills (agent behaviors)
-
-Skills are markdown instructions loaded into agent context. They shape *how* the agent thinks and acts.
+Markdown instructions loaded into agent context. Portable to any framework that supports system prompts.
 
 | Skill | Description |
 |-------|-------------|
-| [orchestrator](skills/orchestrator/) | Subagent delegation — tier selection, TDD requirements, beads integration, timeout guidance |
+| [orchestrator](skills/orchestrator/) | Subagent delegation — tier selection, TDD requirements, timeout guidance |
 | [screenshot](skills/screenshot/) | Headless browser screenshots for visual UI verification |
 | [memory-search](skills/memory-search/) | Semantic memory search across knowledge bases and session logs |
 
-### Extensions (platform capabilities)
+## Extensions
 
-Extensions add tools, commands, and UI to Pi. They give the platform new powers.
+TypeScript plugins that add tools, commands, and UI to Pi.
 
 | Extension | Repo | Description |
 |-----------|------|-------------|
-| Sirdar | [Aklaran/sirdar](https://github.com/Aklaran/sirdar) | Multi-agent orchestration — spawn_agent, check_agents, budget tracking, git worktree isolation |
+| Sirdar | [Aklaran/sirdar](https://github.com/Aklaran/sirdar) | Multi-agent orchestration with budget tracking and git worktree isolation |
 | Diff Review | [Aklaran/pi-diff](https://github.com/Aklaran/pi-diff) | TUI overlay for reviewing file changes with vim-style navigation |
 | Vim Editor | [annapurna-himal/pi-vim-editor](https://github.com/annapurna-himal/pi-vim-editor) | Vim input mode for Pi's editor |
-| Memory Search | [annapurna-himal/pi-memory-search](https://github.com/annapurna-himal/pi-memory-search) | Semantic search tool (BM25 + optional vector embeddings) |
+| Memory Search | [annapurna-himal/pi-memory-search](https://github.com/annapurna-himal/pi-memory-search) | Semantic search (BM25 + optional vector embeddings) |
 | Memory Awareness | (included) | Tracks memory usage, provides `/memory` command |
 
-### Shared Packages
+## Shared Packages
 
 | Package | Description |
 |---------|-------------|
@@ -44,41 +38,30 @@ cd himal
 ./install.sh
 ```
 
-This will:
-1. Copy skills into `~/.pi/agent/skills/`
-2. Clone extension repos into `~/repos/` (if not already present)
-3. Symlink extensions into `~/.pi/agent/extensions/`
-4. Install dependencies for extensions that need them
+This copies skills into `~/.pi/agent/skills/`, clones extension repos, symlinks them into `~/.pi/agent/extensions/`, and installs dependencies.
 
 ### Prerequisites
 
-- [Pi](https://github.com/nicholasgasior/pi-coding-agent) installed and configured
+- [Pi](https://github.com/badlogic/pi-mono)
 - Node.js 20+
-- Git
-- `pnpm` (for extensions with dependencies)
+- Git, `pnpm`
 - `puppeteer-core` + Chromium (for screenshot skill)
 
-## Architecture
+## Layout
 
 ```
 ~/.pi/agent/
-├── skills/           ← agent behaviors (markdown)
+├── skills/           ← markdown (agent behaviors)
 │   ├── orchestrator/
 │   ├── screenshot/
 │   └── memory-search/
-└── extensions/       ← platform capabilities (TypeScript)
+└── extensions/       ← TypeScript (platform capabilities)
     ├── orchestrator  → ~/repos/orchestrator/
     ├── diff-review   → ~/repos/diff-review/
     ├── vim-editor    → ~/repos/pi-vim-editor/
     ├── memory-search → ~/repos/pi-memory-search/
     └── memory-awareness/
 ```
-
-Skills are portable prompt instructions — they could work in any agent framework that supports system prompts. Extensions are Pi-specific and require the Pi SDK.
-
-## Philosophy
-
-Extensions give the **platform** new powers. Skills give the **agent** new patterns. Together they're the mountain.
 
 ## License
 
