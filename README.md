@@ -2,7 +2,7 @@
 
 **The mountain beneath the peaks.**
 
-Himal (हिमाल, Nepali for "mountain") is a collection of skills and extensions for [Pi](https://github.com/nicholasgasior/pi-coding-agent) that turn a base AI agent into one that can orchestrate subagents, review diffs, search semantic memory, take screenshots, and more.
+Himal (हिमाल, Nepali for "mountain") is a collection of skills and extensions for [Pi](https://github.com/badlogic/pi-mono) that turn a base AI agent into one that can orchestrate subagents, review diffs, search semantic memory, take screenshots, and more.
 
 Named peaks — like [Annapurna](https://github.com/annapurna-himal) — are specific agent identities built on Himal's foundation.
 
