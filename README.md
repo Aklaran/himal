@@ -1,4 +1,4 @@
-# Himal
+# Himal (हिमाल)
 
 Skills and extensions for [Pi](https://github.com/badlogic/pi-mono) agents. One install script sets up multi-agent orchestration, diff review, semantic memory, vim editing, and more.
 
